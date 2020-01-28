@@ -1,0 +1,105 @@
+body
+{
+  background-color: #2A2A2A;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 8; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  text-align: center;
+}
+.ppc
+{
+  z-index: 10;
+  background-color: #2B2B2B;
+  width: 500px;
+  height: 400px;
+  color: #EEE;
+  font-family: arial;
+  padding: 10px;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+}
+button
+{
+  border: 0;
+  background-color: #444;
+  box-shadow: none;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #EEE;
+}
+#button
+{
+  height: 50px;
+  width: 200px;
+}
+button:hover
+{
+  background-color: #333;
+}
+#edit_bottom
+{
+  float:left;
+  margin-left: 31px;
+}
+#view_bottom
+{
+  float:right;
+  margin-right: 31px;
+}
+#view_bottom button
+{
+  font-size: 18px;
+}
+#name_file
+{
+  color: white;
+  width: 1480px;
+  height: 18px;
+  font-size: 18px;
+  background-color: #333;
+  border-color: #444;
+  border-style: solid;
+  border-radius: 10px;
+  resize: none;
+}
+#edit
+{
+  width: 49%;
+  float: left;
+  border-radius: 10px;
+  height: 98%;
+}
+.CodeMirror
+{
+  border-radius: 10px;
+  height: 96vh;
+}
+#preview-o
+{
+  background-color: #EEE;
+  float: right;
+  border-radius: 10px;
+  width: 49%;
+  height: 96vh;
+  overflow-y:scroll;
+  overflow-x: scroll;
+}
+
+#preview
+{
+
+  //overflow-wrap: break-word;
+  height: 97%;
+  margin: 10px;
+
+}

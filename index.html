@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bajtix's Simple HTML Editor</title>
+
+  </head>
+  <script type="text/javascript">
+    // Enable navigation prompt
+    window.onbeforeunload = function() {
+      return true;
+    };
+    // Remove navigation prompt
+    window.onbeforeunload = null;
+  </script>
+  <script src="lib/codemirror.js"></script>
+  <link rel="stylesheet" href="lib/codemirror.css">
+  <link rel="stylesheet" href="theme/darcula.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="mode/htmlmixed/htmlmixed.js"></script>
+  <script src="mode/javascript/javascript.js"></script>
+  <script src="mode/xml/xml.js"></script>
+  <script src="mode/css/css.js"></script>
+  <body>
+    <div class="modal" id="popup">
+      <center>
+      <div class="ppc">
+        <h1>Bajtix's Basic HTML Editor</h1>
+        <h2>About</h2>
+        <p>A basic HTML editor with syntax highlighting and live preview. Intended for simple practise with HTML language. It supports every element that your browser supports, using JavaScript to directly render your code. It also supports code snippets with JS and CSS.</p>
+        <h2>Credits</h2>
+        <p>Made by bajtix <br> Using the CodeMirror JS Library <br> With special dedication to __Cody__</p>
+        <button type="button" id="button" onclick="document.getElementById('popup').style.display = 'none';">Cool</button>
+      </div>
+    </center>
+    </div>
+    <script type="text/javascript">
+      document.getElementById("popup").style.display = "block";
+    </script>
+    <div id="edit">
+      <textarea id="editor">
+      </textarea>
+    </div>
+    <div id="preview-o">
+      <div id="preview">
+      Preview - write something in the editor to begin.
+      </div>
+    </div>
+  <script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+      lineNumbers: true,
+      mode: "htmlmixed",
+      matchBrackets: true,
+      theme: "darcula"
+    });
+    editor.on("change",function() {
+      refresh();
+    })
+    function refresh() {
+      document.getElementById("preview").innerHTML = editor.getValue();
+    }
+    function text(text,name,extension){
+      var blob = new Blob([text],{type: "text/html"});
+
+      download(blob,name + "." + extension);
+    }
+
+    function download(blob,name) {
+      var url = URL.createObjectURL(blob),
+        div = document.createElement("div"),
+        anch = document.createElement("a");
+
+      document.body.appendChild(div);
+      div.appendChild(anch);
+
+      anch.innerHTML = "&nbsp;";
+      div.style.width = "0";
+      div.style.height = "0";
+      anch.href = url;
+      anch.download = name;
+
+      var ev = new MouseEvent("click",{});
+      anch.dispatchEvent(ev);
+      document.body.removeChild(div);
+    }
+    function save_html()
+    {
+      var filename = document.getElementById("name_file").value;
+      var code = editor.getValue();
+      if(!filename){
+        alert("Name musn't be null (001_UNSET_NAME)");
+        return;
+      }
+      if(!code || code=="" || code == "      " || code == " ")
+      {
+        alert("No code! (002_NULL_CODE)");
+        return;
+      }
+      alert("File saved as " + filename + ". Download should start");
+      text(code,filename,"html");
+
+    }
+    function save_txt()
+    {
+      var filename = document.getElementById("name_file").value;
+      var code = editor.getValue();
+      if(!filename){
+        alert("Name musn't be null (001_UNSET_NAME)");
+        return;
+      }
+      if(!code || code=="" || code == "      " || code == " ")
+      {
+        alert("No code! (002_NULL_CODE)");
+        return;
+      }
+      alert("File saved as " + filename + ". Download should start");
+      text(code,filename,"txt");
+
+    }
+  </script>
+
+  <div id="edit_bottom">
+
+    <button type="button" class="bt_tb" onclick="save_txt()">Save TXT</button>
+    <button type="button" class="bt_tb" onclick="alert('JavaScript doesn`t support loading files. You have to copy paste the text into the code area manually');">Load</button>
+
+    <textarea id="name_file" cols="40" rows="1" maxlength="40"></textarea>
+
+  </div>
+  <div id="view_bottom">
+    <button type="button" class="bt_tb" onclick="refresh()">Refresh</button>
+    <button type="button" class="bt_tb" onclick="save_html()">Save HTML</button>
+  </div>
+  </body>
+</html>
