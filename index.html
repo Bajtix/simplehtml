@@ -57,7 +57,7 @@
       refresh();
     })
     function refresh() {
-      document.getElementById("preview").innerHTML = editor.getValue();
+      document.getElementById("site_preview").innerHTML = editor.getValue();
     }
     function text(text,name,extension){
       var blob = new Blob([text],{type: "text/html"});
