@@ -21,33 +21,33 @@
   <script src="mode/javascript/javascript.js"></script>
   <script src="mode/xml/xml.js"></script>
   <script src="mode/css/css.js"></script>
-  <body>
-    <div class="modal" id="popup">
+  <body class="body">
+    <div class="modal" id="site_popup">
       <center>
       <div class="ppc">
         <h1>Bajtix's Basic HTML Editor</h1>
         <h2>About</h2>
-        <p>A basic HTML editor with syntax highlighting and live preview. Intended for simple practise with HTML language. It supports every element that your browser supports, using JavaScript to directly render your code. It also supports code snippets with JS and CSS.</p>
+        <p>A basic HTML editor with syntax highlighting and live preview. Intended for simple practise with HTML language. It supports every element that your browser supports, using JavaScript to directly render your code. It also supports code snippets with JS and CSS. It can be customized easly from the level of the editor itself. <br><b>NOTE: Please do not use raw HTML types in CSS - use classes.</b></p>
         <h2>Credits</h2>
         <p>Made by bajtix <br> Using the CodeMirror JS Library <br> With special dedication to __Cody__</p>
-        <button type="button" id="button" onclick="document.getElementById('popup').style.display = 'none';">Cool</button>
+        <button type="button" id="site_button" onclick="document.getElementById('site_popup').style.display = 'none';">Cool</button>
       </div>
     </center>
     </div>
     <script type="text/javascript">
-      document.getElementById("popup").style.display = "block";
+      document.getElementById("site_popup").style.display = "block";
     </script>
-    <div id="edit">
-      <textarea id="editor">
+    <div id="site_edit">
+      <textarea id="site_editor">
       </textarea>
     </div>
-    <div id="preview-o">
-      <div id="preview">
+    <div id="site_preview-o">
+      <div id="site_preview">
       Preview - write something in the editor to begin.
       </div>
     </div>
   <script>
-    var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+    var editor = CodeMirror.fromTextArea(document.getElementById("site_editor"), {
       lineNumbers: true,
       mode: "htmlmixed",
       matchBrackets: true,
@@ -119,15 +119,15 @@
     }
   </script>
 
-  <div id="edit_bottom">
+  <div id="site_edit_bottom">
 
     <button type="button" class="bt_tb" onclick="save_txt()">Save TXT</button>
     <button type="button" class="bt_tb" onclick="alert('JavaScript doesn`t support loading files. You have to copy paste the text into the code area manually');">Load</button>
 
-    <textarea id="name_file" cols="40" rows="1" maxlength="40"></textarea>
+    <textarea id="site_name_file" cols="40" rows="1" maxlength="40"></textarea>
 
   </div>
-  <div id="view_bottom">
+  <div id="site_view_bottom">
     <button type="button" class="bt_tb" onclick="refresh()">Refresh</button>
     <button type="button" class="bt_tb" onclick="save_html()">Save HTML</button>
   </div>
