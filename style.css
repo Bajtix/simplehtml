@@ -19,14 +19,18 @@ body
 {
   z-index: 10;
   background-color: #2B2B2B;
-  width: 500px;
-  height: 430px;
+  width: 520px;
+  height: 450px;
   color: #EEE;
   font-family: arial;
   padding: 10px;
   margin-top: 50px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 10px;
+}
+.ppc a
+{
+  color: white;
 }
 button
 {
@@ -46,24 +50,20 @@ button:hover
 {
   background-color: #333;
 }
-#site_edit_bottom
-{
-  float:left;
-  margin-left: 31px;
-}
-#site_view_bottom
-{
-  float:right;
-  margin-right: 31px;
-}
-#site_view_bottom button
+
+#site_edit_bottom button
 {
   font-size: 18px;
 }
+#site_edit_bottom
+{
+  float: left;
+  width: 40%;
+}
 #site_name_file
 {
+  width: 50%;
   color: white;
-  width: 1480px;
   height: 18px;
   font-size: 18px;
   background-color: #333;
